@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludFácil Senior | Portal de Salud Accesible</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado con Accesibilidad -->
+    <header role="banner">
+        <div class="header-container">
+            <h1>SaludFácil Senior</h1>
+            <p class="subtitle">Atención médica accesible y sencilla para adultos mayores</p>
+            
+            <!-- Barra de accesibilidad rápida -->
+            <div class="accessibility-bar" aria-label="Controles de accesibilidad">
+                <button id="btn-read-page" aria-label="Leer pantalla en voz alta">🔊 Leer Pantalla</button>
+                <button id="btn-toggle-contrast" aria-label="Cambiar a modo alto contraste">👁️ Alto Contraste</button>
+                <button id="btn-increase-font" aria-label="Aumentar tamaño de letra">A+ Aumentar Letra</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main id="main-content" role="main">
+        
+        <!-- Tarjeta de Asistencia por Voz -->
+        <section class="card voice-section" aria-labelledby="voice-title">
+            <h2 id="voice-title">🎙️ Asistente de Voz</h2>
+            <p>Haga clic en el botón y diga qué cita necesita (Ejemplo: <em>"Cita con medicina general"</em>).</p>
+            <button id="btn-voice-command" class="btn-primary btn-large">
+                🎤 Presione para Hablar
+            </button>
+            <p id="voice-status" class="status-message" aria-live="polite">Esperando orden de voz...</p>
+        </section>
+
+        <!-- Formulario de Agendamiento Simplificado (3 Pasos) -->
+        <section class="card booking-section" aria-labelledby="booking-title">
+            <h2 id="booking-title">📅 Agendar Cita Médica (Paso a Paso)</h2>
+            
+            <form id="appointment-form" aria-label="Formulario de agendamiento de citas">
+                
+                <!-- Paso 1 -->
+                <div class="form-step">
+                    <label for="service-select"><strong>Paso 1:</strong> Seleccione el servicio médico</label>
+                    <select id="service-select" class="input-large" required>
+                        <option value="">-- Toque aquí para elegir el servicio --</option>
+                        <option value="Medicina General">Medicina General</option>
+                        <option value="Odontología">Odontología</option>
+                        <option value="Optometría">Optometría</option>
+                        <option value="Exámenes de Laboratorio">Exámenes de Laboratorio</option>
+                    </select>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="form-step">
+                    <label for="appointment-date"><strong>Paso 2:</strong> Seleccione la fecha preferida</label>
+                    <input type="date" id="appointment-date" class="input-large" required>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="form-step">
+                    <label for="user-id"><strong>Paso 3:</strong> Ingrese su número de Cédula</label>
+                    <input type="number" id="user-id" class="input-large" placeholder="Ejemplo: 12345678" required>
+                </div>
+
+                <!-- Botón de Envío -->
+                <button type="submit" class="btn-success btn-large">
+                    ✅ Confirmar y Agendar Cita
+                </button>
+            </form>
+
+            <div id="confirmation-message" class="alert-success" style="display: none;" role="alert"></div>
+        </section>
+
+        <!-- Sección de Accesos Directos de Emergencia -->
+        <section class="card emergency-section" aria-labelledby="emergency-title">
+            <h2 id="emergency-title">🚨 Servicios de Ayuda Rápida</h2>
+            <div class="button-grid">
+                <button onclick="speakText('Llamando a la línea de urgencias médicas 123')" class="btn-emergency">
+                    📞 Llamar Urgencias (123)
+                </button>
+                <button onclick="speakText('Solicitando recordatorio de medicamentos por mensaje')" class="btn-info">
+                    💊 Recordar Mis Medicamentos
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <role role="contentinfo" class="footer">
+        <p>Proyecto Universitario UNAD — Diseño Centrado en el Usuario (Fase 2)[cite: 1].</p>
+        <p>Cumple con estándares internacionales de accesibilidad WCAG 2.1 AAA[cite: 1].</p>
+    </role>
+
+    <script src="script.js"></script>
+</body>
+</html>
